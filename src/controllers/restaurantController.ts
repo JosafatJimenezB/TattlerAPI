@@ -28,11 +28,10 @@ export const getRestaurantById = async (req: Request, res: Response) => {
 
 // Agregar un restaurante
 export const addRestaurant = async (req: Request, res: Response) => {
-  const newRestaurant: Restaurant = req.body;
   try {
-    const restaurant = new RestaurantModel(newRestaurant);
-    await restaurant.save();
-    res.json(restaurant);
+    const newRestaurant = new RestaurantModel(req.body);
+    const savedRestaurant = await newRestaurant.save();
+    res.status(201).json(savedRestaurant);
   } catch (error) {
     res.status(500).json({ error: 'Error al agregar el restaurante' });
   }
