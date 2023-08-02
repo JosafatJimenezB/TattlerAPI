@@ -1,4 +1,4 @@
-import mongoose, { Document } from 'mongoose';
+import mongoose, { Document } from "mongoose";
 
 interface Grade {
   date: Date;
@@ -10,38 +10,46 @@ interface Comment {
   comment: string;
 }
 
+interface Address {
+  building: string;
+  coord: number[];
+  street: string;
+  zipcode: string;
+}
+
 export interface Restaurant extends Document {
-  _id: string;
-  address: {
-    building: string;
-    coord: [number, number];
-    street: string;
-    zipcode: string;
-  };
-  borough: string;
+  name: string;
   cuisine: string;
+  borough: string;
+  address: Address;
   grades: Grade[];
   comments: Comment[];
-  name: string;
   restaurant_id: string;
 }
 
 const restaurantSchema = new mongoose.Schema<Restaurant>({
-  _id: String,
+  name: String,
+  cuisine: String,
+  borough: String,
   address: {
     building: String,
     coord: [Number],
     street: String,
     zipcode: String,
   },
-  borough: String,
-  cuisine: String,
-  grades: [{ date: Date, score: Number }],
-  comments: [{ date: Date, comment: String }],
-  name: String,
+  grades: [
+    {
+      date: Date,
+      score: Number,
+    },
+  ],
+  comments: [
+    {
+      date: Date,
+      comment: String,
+    },
+  ],
   restaurant_id: String,
 });
 
-const RestaurantModel = mongoose.model<Restaurant>('Restaurant', restaurantSchema);
-
-export default RestaurantModel;
+export default mongoose.model<Restaurant>("Restaurant", restaurantSchema);
