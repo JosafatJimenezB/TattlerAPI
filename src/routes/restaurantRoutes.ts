@@ -4,18 +4,18 @@ import * as restaurantController from '../controllers/restaurantController';
 const router = express.Router();
 
 // Obtener todos los restaurantes
-router.get('/', restaurantController.getAllRestaurants);
+router.get('/restaurants', restaurantController.getAllRestaurants);
 
 // Obtener un restaurante por ID
-router.get('/:id', restaurantController.getRestaurantById);
+router.get('/restaurants/:id', restaurantController.getRestaurantById);
 
 // Agregar un restaurante
-router.post('/', restaurantController.addRestaurant);
+router.post('/restaurants', restaurantController.addRestaurant);
 
 // Actualizar un restaurante por ID
-router.put('/:id', restaurantController.updateRestaurant);
+router.put('/restaurants/:id', restaurantController.updateRestaurant);
 
 // Eliminar un restaurante por ID
-router.delete('/:id', restaurantController.deleteRestaurant);
+router.delete('/restaurants/:id', restaurantController.deleteRestaurant);
 
 export default router;
