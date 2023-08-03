@@ -1,14 +1,25 @@
 import mongoose, { Document } from "mongoose";
 
+export interface Comment extends Document {
+  date: Date;
+  comment: string;
+}
+
+const commentSchema = new mongoose.Schema<Comment>({
+  date: Date,
+  comment: String,
+});
+
+
 interface Grade {
   date: Date;
   score: number;
 }
 
-interface Comment {
-  date: Date;
-  comment: string;
-}
+// interface Comment {
+//   date: Date;
+//   comment: string;
+// }
 
 interface Address {
   building: string;
