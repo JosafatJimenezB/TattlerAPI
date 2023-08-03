@@ -3,7 +3,26 @@ import * as restaurantController from '../controllers/restaurantController';
 
 const router = express.Router();
 
-// Obtener todos los restaurantes
+/**
+ * @swagger
+ * tags:
+ *  name: Restaurantes
+ *  description: Operaciones relacionadas con los restaurantes 
+**/ 
+
+
+/**
+ * @swagger
+ * /api/restaurants:
+ *   get:
+ *     summary: Obtener todos los restaurantes
+ *     tags: [Restaurantes]
+ *     responses:
+ *       200:
+ *         description: Lista de restaurantes
+ *       500:
+ *         description: Error en el servidor
+ */
 router.get('/restaurants', restaurantController.getAllRestaurants);
 
 // Obtener un restaurante por ID
