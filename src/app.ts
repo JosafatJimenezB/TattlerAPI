@@ -1,7 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import connectToDatabase from './config/db';
-
-import 'dotenv/config';
+import dotenv from 'dotenv'
 import cors from 'cors'
 
 import restaurantRoutes from './routes/restaurantRoutes'
@@ -11,11 +10,13 @@ import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express'
 import { swaggerOptions } from './config/swagger.config';
 
+dotenv.config();
+
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 
 
 const app: Application = express();
-const PORT: number = parseInt(process.env.PORT || '3000');
+const PORT: number = parseInt(process.env.PORT || '8080');
 
 app.use(express.json());
 
