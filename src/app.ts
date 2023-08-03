@@ -1,8 +1,11 @@
 import express, { Application, Request, Response } from 'express';
 import connectToDatabase from './config/db';
+
 import 'dotenv/config';
-import apiRouter from './routes/restaurantRoutes' // Importa la función desde db.ts
 import cors from 'cors'
+
+import restaurantRoutes from './routes/restaurantRoutes'
+import commentRoutes from './routes/commentRoutes'
 
 const app: Application = express();
 const PORT: number = parseInt(process.env.PORT || '3000');
@@ -13,7 +16,8 @@ connectToDatabase();
 
 app.use(cors());
 
-app.use('/api', apiRouter)
+app.use('/api', restaurantRoutes);
+app.use('/api', commentRoutes);
 
 
 app.listen(PORT, () => {
