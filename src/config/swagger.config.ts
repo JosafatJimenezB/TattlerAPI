@@ -14,6 +14,10 @@ export const swaggerOptions: SwaggerOptions = {
         url: "http://localhost:${PORT}",
         description: "Servidor local"
       },
+      {
+        url: "https://tattler-api.vercel.app",
+        description: "Servidor desplegado",
+      },
     ],
   },
   basePath: "/",
