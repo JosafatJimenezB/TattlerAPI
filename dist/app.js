@@ -9,6 +9,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 const restaurantRoutes_1 = __importDefault(require("./routes/restaurantRoutes"));
 const commentRoutes_1 = __importDefault(require("./routes/commentRoutes"));
+const filterRoutes_1 = __importDefault(require("./routes/filterRoutes"));
 const swagger_jsdoc_1 = __importDefault(require("swagger-jsdoc"));
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const swagger_config_1 = require("./config/swagger.config");
@@ -21,6 +22,7 @@ app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 app.use('/api', restaurantRoutes_1.default);
 app.use('/api', commentRoutes_1.default);
+app.use('/api/filters', filterRoutes_1.default);
 app.get('/ping', (_req, res) => {
     return res.send('pong 🏓');
 });

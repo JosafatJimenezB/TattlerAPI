@@ -16,11 +16,6 @@ interface Grade {
   score: number;
 }
 
-// interface Comment {
-//   date: Date;
-//   comment: string;
-// }
-
 interface Address {
   building: string;
   coord: number[];

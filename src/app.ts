@@ -5,6 +5,7 @@ import cors from 'cors'
 
 import restaurantRoutes from './routes/restaurantRoutes'
 import commentRoutes from './routes/commentRoutes'
+import filterRoutes from './routes/filterRoutes'
 
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express'
@@ -26,6 +27,7 @@ app.use(cors());
 
 app.use('/api', restaurantRoutes);
 app.use('/api', commentRoutes);
+app.use('/api/filters', filterRoutes)
 app.get('/ping', (_req: Request, res: Response) => {
   return res.send('pong 🏓')
 })
